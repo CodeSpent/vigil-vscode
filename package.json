@@ -1,0 +1,123 @@
+{
+    "name": "vscode-extension-boilerplate",
+    "displayName": "VSCode extension boilerplate",
+    "version": "0.0.1",
+    "preview": true,
+    "description": "An awesome boilerplate for VSCode extension development",
+    "publisher": "YuTengjing",
+    "author": {
+        "name": "YuTengjing",
+        "url": "https://github.com/tjx666",
+        "email": "ytj2713151713@gmail.com"
+    },
+    "icon": "images/logo.png",
+    "license": "SEE LICENSE IN LICENSE",
+    "badges": [
+        {
+            "url": "https://img.shields.io/badge/License-MIT-brightgreen.svg",
+            "description": "License: MIT",
+            "href": "https://github.com/tjx666/vscode-extension-boilerplate/blob/master/LICENSE"
+        },
+        {
+            "url": "https://img.shields.io/badge/PRs-welcome-brightgreen.svg",
+            "description": "PRs Welcome",
+            "href": "https://github.com/tjx666/vscode-extension-boilerplate"
+        }
+    ],
+    "homepage": "https://github.com/tjx666/vscode-extension-boilerplate/blob/master/README.md",
+    "bugs": {
+        "url": "https://github.com/tjx666/vscode-extension-boilerplate/issues",
+        "email": "ytj2713151713@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tjx666/vscode-extension-boilerplate"
+    },
+    "engines": {
+        "vscode": "^1.51.0",
+        "node": ">=14.15.1"
+    },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "vscode",
+        "vscode-extension",
+        "vscode-extension-boilerplate",
+        "boilerplate"
+    ],
+    "main": "out/extension.js",
+    "scripts": {
+        "vscode:prepublish": "yarn build",
+        "compile": "cross-env NODE_ENV=development ts-node --files -P ./build/tsconfig.json ./build",
+        "test-compile": "tsc -p ./test/tsconfig.json",
+        "build": "cross-env NODE_ENV=production ts-node --files -P ./build/tsconfig.json ./build",
+        "build-analyze": "yarn build --analyze",
+        "lint": "eslint -c .eslintrc.js --ext .ts ./{build,src,test}/**/*.ts",
+        "test": "yarn run test-compile && node ./out/test/runTests.js"
+    },
+    "activationEvents": [
+        "onCommand:VSCodeExtensionBoilerplate.helloVSCode"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "VSCodeExtensionBoilerplate.helloVSCode",
+                "title": "Hello Visual Studio Code!"
+            }
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts}": [
+            "eslint -c .eslintrc"
+        ],
+        "*.{ts,json,md}": [
+            "prettier --write"
+        ]
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@soda/friendly-errors-webpack-plugin": "^1.8.0",
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^8.2.2",
+        "@types/node": "^15.0.1",
+        "@types/terser-webpack-plugin": "^5.0.3",
+        "@types/vscode": "1.55.0",
+        "@types/webpack": "^5.28.0",
+        "@types/webpack-bundle-analyzer": "^4.4.0",
+        "@types/webpack-merge": "^5.0.0",
+        "@types/webpackbar": "^4.0.1",
+        "@types/yargs": "^16.0.1",
+        "@typescript-eslint/eslint-plugin": "^4.22.0",
+        "@typescript-eslint/parser": "^4.22.0",
+        "clean-webpack-plugin": "^4.0.0-alpha.0",
+        "cross-env": "^7.0.3",
+        "eslint": "^7.25.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-config-airbnb-typescript": "^12.3.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "2.22.1",
+        "eslint-plugin-unicorn": "^31.0.0",
+        "glob": "^7.1.5",
+        "husky": "^6.0.0",
+        "lint-staged": "^10.5.4",
+        "mocha": "^8.3.2",
+        "prettier": "^2.2.1",
+        "speed-measure-webpack-plugin": "^1.5.0",
+        "terser-webpack-plugin": "^5.1.1",
+        "ts-loader": "^9.1.1",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.4",
+        "vscode-test": "^1.5.2",
+        "webpack": "^5.36.1",
+        "webpack-bundle-analyzer": "^4.4.1",
+        "webpack-merge": "^5.7.3",
+        "webpackbar": "^5.0.0-3",
+        "yargs": "^16.2.0"
+    }
+}
